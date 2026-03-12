@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKUNKIN - Custom T-Shirts & Merch</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #000;
+        }
+        
+        /* TOP NAV */
+        .top-nav {
+            background: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            padding: 0.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .brand-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .brand-nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        .brand-nav a:hover,
+        .brand-nav a.active {
+            color: #FFD700;
+        }
+        
+        .top-nav-right {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #FFD700;
+            color: black;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 900;
+        }
+        
+        /* HEADER */
+        .main-header {
+            background: #fff;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .logo {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .main-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .main-nav a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        .main-nav a:hover {
+            color: #FFD700;
+        }
+        
+
+        
+        /* PROMO BAR */
+        .promo-bar {
+            background: #FFD700;
+            color: black;
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+        
+        /* HERO - NEW STYLE */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: auto;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 100vw;
+            min-height: auto;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+        
+        /* Hero image */
+        .hero-photo {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .hero-photo img {
+            width: 100%;
+            height: auto;
+            filter: none;
+            border-radius: 0;
+            display: block;
+        }
+        
+        .hero-overlay {
+            position: relative;
+            text-align: center;
+            z-index: 10;
+            width: 90%;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        
+        .hero-cta {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            font-weight: 900;
+            background: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .hero-cta:hover {
+            background: #FF0000;
+            transform: scale(1.05);
+        }
+        
+        /* AI DESIGN SECTION */
+        .design-section {
+            background: #f8f8f8;
+            padding: 4rem 2rem;
+        }
+        
+        .design-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .design-container h2 {
+            font-size: 2.5rem;
+            color: #FF0000;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .design-container p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            background: #fff;
+            border: 2px solid #FF0000;
+            color: #000;
+            margin-bottom: 1rem;
+        }
+        
+        input::placeholder { color: #999; }
+        
+        .btn {
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.2rem;
+            font-weight: 900;
+            background: #FF0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #cc0000;
+            transform: scale(1.02);
+        }
+        
+        .examples {
+            margin: 2rem 0;
+        }
+        
+        .examples p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .examples button {
+            margin: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .examples button:hover {
+            border-color: #FF0000;
+            color: #FF0000;
+            background: rgba(255,0,0,0.1);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #f8f8f8;
+            border-top: 1px solid #ddd;
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 2rem;
+            color: #FFD700;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-brand p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            border-color: #FFD700;
+            background: rgba(255,215,0,0.1);
+        }
+        
+        .footer-links h4 {
+            color: #000;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #666;
+            text-decoration: none;
+            margin: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: #666;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .hidden { display: none !important; }
+        
+        /* CONTACT PAGE */
+        .contact-page {
+            display: none;
+            padding: 4rem 2rem;
+            background: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-page.active { display: block; }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-header h1 {
+            font-size: 3rem;
+            color: #4B5320;
+            font-weight: 900;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info h2 {
+            color: #4B5320;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .contact-info strong {
+            color: #4B5320;
+        }
+        
+        .contact-form h2 {
+            color: #4B5320;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4B5320;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: #4B5320;
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: #3a4119;
+            transform: scale(1.02);
+        }
+        
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        /* ABOUT PAGE */
+        .about-page {
+            display: none;
+            padding: 4rem 2rem;
+            background: #fff;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about-page.active { display: block; }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-header h1 {
+            font-size: 3rem;
+            color: #4B5320;
+            font-weight: 900;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .about-header p {
+            font-size: 1.3rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .about-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .about-content h2 {
+            color: #4B5320;
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 2.5rem 0 1rem;
+            font-style: italic;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content strong {
+            color: #4B5320;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .value-card {
+            background: #f8f8f8;
+            padding: 2rem;
+            text-align: center;
+            border-top: 4px solid #4B5320;
+        }
+        
+        .value-card h3 {
+            color: #4B5320;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+        
+        .value-card p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+            
+            .logo img {
+                height: 60px;
+            }
+            
+            .main-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+            
+
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-section {
+                min-height: auto;
+                padding: 1rem 0;
+            }
+            
+            .brand-nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
+            }
+            
+            .top-nav {
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP NAV -->
+    <div class="top-nav">
+        <div class="brand-nav">
+            <a class="active" onclick="showPage('hero')">Custom Tees</a>
+            <a onclick="showPage('hero')">Wearable Merch</a>
+            <a onclick="showPage('hero')">Accessories</a>
+            <a onclick="showPage('hero')">Custom Merch</a>
+            <a onclick="showPage('about')">About Us</a>
+            <a onclick="showPage('contact')">Contact</a>
+        </div>
+        <div class="top-nav-right">
+            <div class="cart-icon" onclick="openCart()">
+                🛒
+                <span class="cart-count">0</span>
+            </div>
+            <div class="user-icon" onclick="openAccount()">👤</div>
+        </div>
+    </div>
+
+    <!-- PROMO BAR -->
+    <div class="promo-bar">
+        FREE SHIPPING ON ORDERS $50+ | 40% OFF AI-GENERATED DESIGNS
+    </div>
+
+    <!-- HEADER -->
+    <div class="main-header">
+        <div class="logo" onclick="window.location.reload()">
+            <img src="logo.jpg" alt="SKUNKIN">
+        </div>
+        
+        <nav class="main-nav">
+            <a onclick="showPage('hero')">New</a>
+            <a>Men</a>
+            <a>Women</a>
+            <a>Kids</a>
+            <a>Collections</a>
+        </nav>
+    </div>
+
+    <!-- HERO SECTION -->
+    <div class="hero-section">
+        <div class="hero-image-container">
+            <!-- Grim Reaper Hero Image - Full Width -->
+            <div class="hero-photo">
+                <img src="hero-image-2.jpg" alt="SKUNKIN T-Shirt Design - Grim Reaper" />
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- AI DESIGN SECTION -->
+    <div id="design-section" class="design-section">
+        <div class="design-container">
+            <input type="text" id="promptInput" placeholder="Describe your wildest t-shirt idea...">
+            <button class="btn" onclick="generateDesigns()">Generate My Design →</button>
+
+            <div class="examples">
+                <p>Try these SKUNKIN designs:</p>
+                <button onclick="setPrompt('Aerospace rocket launch with retro heretics badge psychedelic colors')">🚀 Aerospace Heretics</button>
+                <button onclick="setPrompt('American muscle car burnout with performance graphics neon colors')">🏎️ Muscle Performance</button>
+                <button onclick="setPrompt('Nuclear research black ops military skunk works badge vintage style')">⚛️ Black Ops Skunk</button>
+            </div>
+            
+            <div id="designResult"></div>
+        </div>
+        
+        <!-- Other Design Example -->
+        <div style="margin-top: 4rem; text-align: center;">
+            <h3 style="color: #FF0000; font-size: 2rem; margin-bottom: 1rem;">More SKUNKIN Designs</h3>
+            <img src="hero-image.jpg" alt="SKUNKIN Design Example" style="max-width: 500px; width: 90%; border-radius: 8px;">
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about-page" class="about-page">
+        <div class="about-header">
+            <h1>The SKUNKIN Story</h1>
+            <p>Born from rebellion. Built on innovation. Driven by obsession.</p>
+        </div>
+        
+        <div class="about-content">
+            <p>In the late hours of a California workshop, surrounded by the hum of machines and the smell of hot metal, an idea was born. Not from a boardroom. Not from a focus group. But from the hands of engineers, mechanics, and backyard inventors who refused to accept "good enough."</p>
+            
+            <p><strong>SKUNKIN</strong> started as a joke — a play on the legendary "skunk works" projects where the impossible becomes reality. Those secret labs where aerospace engineers push rockets to the edge of physics. Where muscle car builders squeeze every ounce of horsepower from American iron. Where black ops researchers test the boundaries of what humans can achieve.</p>
+            
+            <h2>The Philosophy</h2>
+            
+            <p>But it became something more. It became a philosophy. A way of life.</p>
+            
+            <p>See, in those circles — the aerospace hangars, the drag strips, the research facilities — there's a ritual. After every test, every run, every experiment, win or lose, they gather. They <strong>debrief</strong>. They <strong>recap</strong>. They share what went right, what went wrong, and most importantly, what they learned.</p>
+            
+            <p>They call it "skunkin" — the act of collecting data, analyzing results, and sharing knowledge so the next person can push further. It's not about ego. It's not about glory. It's about the <strong>collective pursuit of better</strong>.</p>
+            
+            <h2>The Mission</h2>
+            
+            <p>That's what SKUNKIN represents. Every design we create tells a story of testing limits. Of collecting data. Of learning from failure. Of pushing boundaries — whether that's Mach speed at 50,000 feet, 1,000 horsepower at the dyno, or nuclear fusion in a lab.</p>
+            
+            <p>Our apparel isn't just clothing. It's a badge. It says: <strong>"I test. I measure. I learn. I share."</strong></p>
+            
+            <p>It's for the weekend wrench-turners who datalogged every pull to dial in their turbo setup. For the backyard rocket builders who meticulously recorded thrust curves. For the fabricators who tested twelve different welds to find the strongest joint. For anyone who understands that the real victory isn't in the result — it's in the <strong>data you collect along the way</strong>.</p>
+            
+            <h2>The Culture</h2>
+            
+            <p>SKUNKIN is a culture. A movement. A shared understanding that excellence comes from iteration, not inspiration. That progress happens when knowledge is shared, not hoarded. That the best engineers, builders, and creators aren't the ones who never fail — they're the ones who <strong>debrief harder</strong> than anyone else.</p>
+            
+            <p>So whether you're tuning a supercharger, launching a model rocket, building a race car, or just chasing a personal best in whatever pursuit drives you — wear it proud. You're part of the tribe.</p>
+            
+            <p><strong>You're SKUNKIN.</strong></p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>🔬 TEST</h3>
+                    <p>Push boundaries. Challenge limits. Break things to learn how they work.</p>
+                </div>
+                <div class="value-card">
+                    <h3>📊 MEASURE</h3>
+                    <p>Data over guesses. Results over opinions. Numbers tell the truth.</p>
+                </div>
+                <div class="value-card">
+                    <h3>🤝 SHARE</h3>
+                    <p>Knowledge multiplies when shared. Lift others so they can push further.</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 1.3rem; margin-top: 3rem; color: #4B5320; font-style: italic;">
+                <strong>Welcome to SKUNKIN. Where every shirt tells a story of limits tested and lessons learned.</strong>
+            </p>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="contact-page">
+        <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>We are in the business of pushing limits. Let's create something extraordinary together.</p>
+        </div>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <p><strong>Phone:</strong><br>(951) 303-6857</p>
+                <p><strong>Email:</strong><br>info@skunkin.com</p>
+                <p><strong>Address:</strong><br>
+                32815 Temecula Pkwy<br>
+                Unit B<br>
+                Temecula, California 92592</p>
+                <p><strong>Hours:</strong><br>
+                Monday - Friday: 9:00 AM - 5:00 PM PST<br>
+                Saturday - Sunday: Closed</p>
+            </div>
+            
+            <div class="contact-form">
+                <h2>Send Us A Message</h2>
+                <form onsubmit="submitContactForm(event)">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>SKUNKIN</h3>
+                <p>Push the limits. Test the boundaries. Share the journey.</p>
+                <div class="social-links">
+                    <a href="#">📘</a>
+                    <a href="#">📷</a>
+                    <a href="#">🐦</a>
+                    <a href="#">▶️</a>
+                    <a href="#">💼</a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <a href="#" onclick="event.preventDefault(); showPage('about');">About Us</a>
+                <a href="#" onclick="event.preventDefault(); showPage('contact');">Contact</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">FAQ</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">Size Guide</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 SKUNKIN. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <script>
+        let cartCount = 0;
+
+        function scrollToDesign() {
+            document.getElementById('design-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function setPrompt(text) {
+            document.getElementById('promptInput').value = text;
+        }
+
+        function generateDesigns() {
+            const prompt = document.getElementById('promptInput').value.trim();
+            if (!prompt) return;
+            alert('🚀 AI Generator activated!\n\nGenerating designs for: "' + prompt + '"\n\nThis will create unique designs based on your prompt.');
+        }
+
+        function addToCart() {
+            cartCount++;
+            document.querySelector('.cart-count').textContent = cartCount;
+            alert('Added to cart! 🛒');
+        }
+
+        function openCart() {
+            alert('Cart: ' + cartCount + ' items\n(Full cart page coming soon!)');
+        }
+
+        function openAccount() {
+            alert('Account page coming soon!');
+        }
+
+        function showPage(page) {
+            // Hide all pages
+            document.querySelector('.hero-section').style.display = 'none';
+            document.getElementById('design-section').style.display = 'none';
+            document.getElementById('contact-page').classList.remove('active');
+            document.getElementById('about-page').classList.remove('active');
+            
+            // Show requested page
+            if (page === 'contact') {
+                document.getElementById('contact-page').classList.add('active');
+            } else if (page === 'about') {
+                document.getElementById('about-page').classList.add('active');
+            } else {
+                // Show hero/home page
+                document.querySelector('.hero-section').style.display = 'block';
+                document.getElementById('design-section').style.display = 'block';
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function submitContactForm(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            e.target.reset();
+        }
+
+        document.getElementById('promptInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') generateDesigns();
+        });
+    </script>
+</body>
+</html>
