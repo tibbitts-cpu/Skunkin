@@ -9,7 +9,6 @@ redirects = []
 [build]
 publish = "/Users/andrewtibbitts/.openclaw/workspace/skunkin-deploy"
 publishOrigin = "config"
-base = "/Users/andrewtibbitts/.openclaw/workspace/skunkin-deploy"
 
 [build.environment]
 
