@@ -828,8 +828,104 @@
 
         function generateDesigns() {
             const prompt = document.getElementById('promptInput').value.trim();
-            if (!prompt) return;
-            alert('🚀 AI Generator activated!\n\nGenerating designs for: "' + prompt + '"\n\nThis will create unique designs based on your prompt.');
+            if (!prompt) {
+                alert('Please enter a design idea!');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('designResult');
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = '<div class="loading-spinner"><p>Generating your design...</p></div>';
+            
+            // Simulate AI processing
+            setTimeout(() => {
+                createDesignMockup(prompt);
+            }, 1500);
+        }
+        
+        function createDesignMockup(prompt) {
+            const resultDiv = document.getElementById('designResult');
+            
+            // Create canvas for t-shirt mockup
+            const canvas = document.createElement('canvas');
+            canvas.width = 800;
+            canvas.height = 1000;
+            const ctx = canvas.getContext('2d');
+            
+            // Black t-shirt background
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, 800, 1000);
+            
+            // Design area (centered on chest)
+            const designX = 200;
+            const designY = 300;
+            const designW = 400;
+            const designH = 400;
+            
+            // Background color for design
+            const colors = ['#00ffff', '#ff00ff', '#FFD700', '#FF4500', '#00ff00'];
+            const bgColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Draw design background with gradient
+            const gradient = ctx.createRadialGradient(400, 500, 50, 400, 500, 250);
+            gradient.addColorStop(0, bgColor);
+            gradient.addColorStop(1, 'rgba(0,0,0,0.3)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(designX, designY, designW, designH);
+            
+            // Add neon glow effect
+            ctx.shadowColor = bgColor;
+            ctx.shadowBlur = 30;
+            
+            // Draw prompt text
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 40px Arial';
+            ctx.textAlign = 'center';
+            ctx.shadowBlur = 20;
+            
+            // Word wrap the prompt
+            const words = prompt.split(' ');
+            let line = '';
+            let y = 450;
+            const maxWidth = 350;
+            
+            for (let word of words) {
+                const testLine = line + word + ' ';
+                const metrics = ctx.measureText(testLine);
+                if (metrics.width > maxWidth && line !== '') {
+                    ctx.fillText(line.trim(), 400, y);
+                    line = word + ' ';
+                    y += 50;
+                } else {
+                    line = testLine;
+                }
+            }
+            ctx.fillText(line.trim(), 400, y);
+            
+            // Add "SKUNKIN" branding
+            ctx.font = 'italic bold 50px Arial';
+            ctx.fillStyle = bgColor;
+            ctx.shadowBlur = 30;
+            ctx.fillText('SKUNKIN', 400, 650);
+            
+            // Display result
+            resultDiv.innerHTML = `
+                <div class="mockup-container">
+                    <h3 style="color: #00ffff; margin-bottom: 1rem; text-shadow: 0 0 10px #00ffff;">✨ Your Design</h3>
+                    <img src="${canvas.toDataURL()}" alt="Generated Design">
+                    <div class="design-actions">
+                        <button onclick="regenerateDesign()">🔄 Regenerate</button>
+                        <button onclick="addToCart()">🛒 Add to Cart - $29.99</button>
+                    </div>
+                </div>
+            `;
+            
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        function regenerateDesign() {
+            const prompt = document.getElementById('promptInput').value.trim();
+            generateDesigns();
         }
 
         function addToCart() {
