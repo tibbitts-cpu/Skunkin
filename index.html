@@ -391,27 +391,28 @@
         }
         
         .social-links a {
-            width: 45px;
-            height: 45px;
-            background: #1a1a1a;
-            border: 2px solid #00ffff;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             text-decoration: none;
             transition: all 0.3s;
-            color: #00ffff;
+            color: #fff;
+            border: none;
         }
         
         .social-links a:hover {
-            border-color: #ff00ff;
-            background: rgba(255,0,255,0.2);
-            color: #ff00ff;
-            box-shadow: 0 0 20px #ff00ff;
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3);
         }
+        
+        .social-links a:nth-child(1) { background: #1877F2; } /* Facebook */
+        .social-links a:nth-child(2) { background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4); } /* Instagram */
+        .social-links a:nth-child(3) { background: #1DA1F2; } /* Twitter */
+        .social-links a:nth-child(4) { background: #FF0000; } /* YouTube */
         
         .footer-links h4 {
             color: #000;
@@ -858,11 +859,10 @@
                 <h3>SKUNKIN</h3>
                 <p>Push the limits. Test the boundaries. Share the journey.</p>
                 <div class="social-links">
-                    <a href="https://facebook.com/skunkin" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com/skunkin" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com/skunkin" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
-                    <a href="https://youtube.com/@skunkin" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://tiktok.com/@skunkin" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://facebook.com/skunkin" target="_blank" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/skunkin" target="_blank" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/skunkin" target="_blank" title="Twitter/X" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com/@skunkin" target="_blank" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             
