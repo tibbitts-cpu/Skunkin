@@ -171,10 +171,10 @@ function createDesignMockup(prompt) {
     resultDiv.innerHTML = `
         <div class="mockup-container">
             <h3 style="color: #00ffff; margin-bottom: 1rem; text-shadow: 0 0 10px #00ffff;">✨ Your Design</h3>
-            <img src="${canvas.toDataURL()}" alt="Generated Design">
+            <img src="${canvas.toDataURL()}" alt="Generated Design" id="generatedDesign">
             <div class="design-actions">
                 <button onclick="regenerateDesign()">🔄 Regenerate</button>
-                <button onclick="addToCart()">🛒 Add to Cart - $29.99</button>
+                <button onclick="customizeDesign()">⚡ Customize & Order</button>
             </div>
         </div>
     `;
@@ -226,4 +226,14 @@ function submitContactForm(e) {
     e.preventDefault();
     alert('Thank you for your message! We will get back to you soon.');
     e.target.reset();
+}
+
+// Custom design flow
+function customizeDesign() {
+    const designImg = document.getElementById('generatedDesign');
+    if (designImg) {
+        sessionStorage.setItem('customDesign', designImg.src);
+        sessionStorage.setItem('customPrompt', document.getElementById('promptInput').value);
+    }
+    window.location.href = 'customize.html';
 }

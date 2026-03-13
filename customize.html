@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Your Design - SKUNKIN</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .customize-page {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .customize-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .customize-header h1 {
+            font-size: 3rem;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+            margin-bottom: 1rem;
+        }
+        
+        .customize-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .design-preview {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+        
+        .design-preview img {
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 30px #00ffff;
+        }
+        
+        .customize-options {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+        }
+        
+        .step {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            background: #111;
+            border: 2px solid #333;
+            position: relative;
+        }
+        
+        .step.active {
+            border-color: #00ffff;
+            color: #00ffff;
+            box-shadow: 0 0 15px #00ffff;
+        }
+        
+        .step.completed {
+            border-color: #00ff00;
+            background: rgba(0,255,0,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .customize-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .design-preview {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body style="background: #0a0a0a; color: #fff;">
+    <!-- Simple header -->
+    <div style="background: #000; border-bottom: 2px solid #00ffff; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 2rem; font-weight: 900; color: #00ffff; font-style: italic; cursor: pointer;" onclick="window.location.href='index.html'">SKUNKIN</div>
+        <div style="color: #999;">Customize Your Design</div>
+    </div>
+    
+    <div class="customize-page">
+        <div class="customize-header">
+            <h1>Customize Your Design</h1>
+            <p style="color: #999; font-size: 1.2rem;">Choose your options to complete your order</p>
+        </div>
+        
+        <div class="customize-layout">
+            <div class="design-preview">
+                <img id="previewImg" src="" alt="Your Design">
+                <div style="margin-top: 1rem; text-align: center;">
+                    <p style="color: #00ffff; font-size: 1.2rem; font-weight: 700;">Your Custom Design</p>
+                    <p id="designPrompt" style="color: #999; margin-top: 0.5rem;"></p>
+                </div>
+            </div>
+            
+            <div class="customize-options">
+                <div class="step-indicator">
+                    <div class="step active" id="step1">1. Gender</div>
+                    <div class="step" id="step2">2. Size</div>
+                    <div class="step" id="step3">3. Color</div>
+                    <div class="step" id="step4">4. Material</div>
+                </div>
+                
+                <!-- Step 1: Gender -->
+                <div id="genderStep" class="option-section">
+                    <div class="option-group">
+                        <label>Select Gender / Fit</label>
+                        <div class="fit-options">
+                            <button class="fit-btn active" data-value="mens">Men's</button>
+                            <button class="fit-btn" data-value="womens">Women's</button>
+                            <button class="fit-btn" data-value="unisex">Unisex</button>
+                            <button class="fit-btn" data-value="kids">Kids</button>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="nextStep(2)" style="margin-top: 2rem; width: 100%;">Next: Choose Size →</button>
+                </div>
+                
+                <!-- Step 2: Size -->
+                <div id="sizeStep" class="option-section" style="display: none;">
+                    <div class="option-group">
+                        <label>Select Size</label>
+                        <div class="size-options">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn active">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                            <button class="size-btn">2XL</button>
+                            <button class="size-btn">3XL</button>
+                        </div>
+                        <a href="#" class="size-guide" style="color: #00ffff; margin-top: 1rem; display: inline-block;">📏 Size Guide</a>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button class="btn-secondary" onclick="prevStep(1)" style="flex: 1;">← Back</button>
+                        <button class="btn-primary" onclick="nextStep(3)" style="flex: 1;">Next: Choose Color →</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Color -->
+                <div id="colorStep" class="option-section" style="display: none;">
+                    <div class="option-group">
+                        <label>Select T-Shirt Color</label>
+                        <div class="color-options">
+                            <button class="color-option active" style="background: #000" title="Black" data-value="black"></button>
+                            <button class="color-option" style="background: #fff; border: 2px solid #333" title="White" data-value="white"></button>
+                            <button class="color-option" style="background: #666" title="Gray" data-value="gray"></button>
+                            <button class="color-option" style="background: #000080" title="Navy" data-value="navy"></button>
+                            <button class="color-option" style="background: #8B0000" title="Maroon" data-value="maroon"></button>
+                            <button class="color-option" style="background: #228B22" title="Forest Green" data-value="green"></button>
+                        </div>
+                        <p style="color: #999; margin-top: 1rem; font-size: 0.9rem;">Your design will be printed on the selected color</p>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button class="btn-secondary" onclick="prevStep(2)" style="flex: 1;">← Back</button>
+                        <button class="btn-primary" onclick="nextStep(4)" style="flex: 1;">Next: Choose Material →</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Material -->
+                <div id="materialStep" class="option-section" style="display: none;">
+                    <div class="option-group">
+                        <label>Select Material</label>
+                        <select class="material-select" style="width: 100%; padding: 1rem; background: #000; border: 2px solid #00ffff; color: #fff; font-size: 1rem;">
+                            <option value="cotton">100% Cotton - $29.99</option>
+                            <option value="triblend">Tri-Blend (50/25/25) - $34.99</option>
+                            <option value="performance">Performance Poly - $39.99</option>
+                            <option value="heavyweight">Heavyweight Cotton - $34.99</option>
+                        </select>
+                    </div>
+                    
+                    <div class="option-group" style="margin-top: 2rem;">
+                        <label>Quantity</label>
+                        <div class="quantity-selector">
+                            <button onclick="changeCustomQty(-1)">-</button>
+                            <input type="number" id="customQty" value="1" min="1" style="width: 60px; text-align: center; padding: 0.5rem; background: #000; border: 2px solid #333; color: #fff;">
+                            <button onclick="changeCustomQty(1)">+</button>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: #000; border-radius: 8px; border: 2px solid #00ffff;">
+                        <h3 style="color: #00ffff; margin-bottom: 1rem;">Order Summary</h3>
+                        <div style="display: flex; justify-content: space-between; margin: 0.5rem 0;">
+                            <span>Custom Design T-Shirt</span>
+                            <span id="itemPrice">$29.99</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 0.5rem 0;">
+                            <span>Quantity</span>
+                            <span id="qtyDisplay">1</span>
+                        </div>
+                        <hr style="border-color: #333; margin: 1rem 0;">
+                        <div style="display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 700; color: #00ffff;">
+                            <span>Total</span>
+                            <span id="totalPrice">$29.99</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button class="btn-secondary" onclick="prevStep(3)" style="flex: 1;">← Back</button>
+                        <button class="btn-primary" onclick="proceedToCheckout()" style="flex: 2;">🛒 Add to Cart & Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+    <script>
+        // Load design from session storage
+        window.onload = function() {
+            const designImg = sessionStorage.getItem('customDesign');
+            const prompt = sessionStorage.getItem('customPrompt');
+            
+            if (designImg) {
+                document.getElementById('previewImg').src = designImg;
+            }
+            
+            if (prompt) {
+                document.getElementById('designPrompt').textContent = `"${prompt}"`;
+            }
+        };
+        
+        // Step navigation
+        function nextStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.option-section').forEach(s => s.style.display = 'none');
+            
+            // Mark previous steps as completed
+            for (let i = 1; i < step; i++) {
+                document.getElementById(`step${i}`).classList.add('completed');
+                document.getElementById(`step${i}`).classList.remove('active');
+            }
+            
+            // Activate current step
+            document.getElementById(`step${step}`).classList.add('active');
+            
+            // Show current step
+            const steps = ['', 'genderStep', 'sizeStep', 'colorStep', 'materialStep'];
+            document.getElementById(steps[step]).style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function prevStep(step) {
+            nextStep(step);
+            document.getElementById(`step${step + 1}`).classList.remove('completed');
+        }
+        
+        // Option selection handlers
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('fit-btn')) {
+                document.querySelectorAll('.fit-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+            
+            if (e.target.classList.contains('size-btn')) {
+                document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+            
+            if (e.target.classList.contains('color-option')) {
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
+                e.target.classList.add('active');
+            }
+        });
+        
+        // Material price update
+        document.querySelector('.material-select').addEventListener('change', function() {
+            const price = this.value === 'cotton' ? 29.99 : 
+                         this.value === 'triblend' ? 34.99 :
+                         this.value === 'performance' ? 39.99 : 34.99;
+            updatePrice(price);
+        });
+        
+        function changeCustomQty(delta) {
+            const qtyInput = document.getElementById('customQty');
+            let qty = parseInt(qtyInput.value) + delta;
+            if (qty < 1) qty = 1;
+            qtyInput.value = qty;
+            document.getElementById('qtyDisplay').textContent = qty;
+            
+            const basePrice = parseFloat(document.getElementById('itemPrice').textContent.replace('$', ''));
+            document.getElementById('totalPrice').textContent = '$' + (basePrice * qty).toFixed(2);
+        }
+        
+        function updatePrice(price) {
+            document.getElementById('itemPrice').textContent = '$' + price.toFixed(2);
+            const qty = parseInt(document.getElementById('customQty').value);
+            document.getElementById('totalPrice').textContent = '$' + (price * qty).toFixed(2);
+        }
+        
+        function proceedToCheckout() {
+            // Store order details
+            const order = {
+                design: sessionStorage.getItem('customDesign'),
+                prompt: sessionStorage.getItem('customPrompt'),
+                gender: document.querySelector('.fit-btn.active').textContent,
+                size: document.querySelector('.size-btn.active').textContent,
+                color: document.querySelector('.color-option.active').title,
+                material: document.querySelector('.material-select').selectedOptions[0].text,
+                quantity: document.getElementById('customQty').value,
+                price: document.getElementById('totalPrice').textContent
+            };
+            
+            sessionStorage.setItem('customOrder', JSON.stringify(order));
+            
+            alert('✅ Added to cart!\n\nYour custom design is ready for checkout.');
+            window.location.href = 'checkout.html';
+        }
+    </script>
+</body>
+</html>
