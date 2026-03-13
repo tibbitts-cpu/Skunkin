@@ -724,3 +724,40 @@ body {
         grid-column: 1 / -1;
     }
 }
+
+/* Universal button pill style override */
+button, .btn, .btn-primary, .btn-secondary, .size-btn, .fit-btn, .hero-cta, .submit-btn, .checkout-btn, .place-order-btn {
+    border-radius: 50px !important;
+}
+
+.btn-primary, .checkout-btn, .place-order-btn {
+    padding: 1.5rem 3rem;
+    font-size: 1.3rem;
+    border-radius: 50px;
+}
+
+.btn-secondary {
+    padding: 1.5rem 3rem;
+    font-size: 1.3rem;
+    border-radius: 50px;
+}
+
+.size-btn, .fit-btn {
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+}
+
+.hero-cta {
+    border-radius: 50px;
+    padding: 1.5rem 3rem;
+}
+
+.submit-btn {
+    border-radius: 50px;
+    padding: 1.5rem 3rem;
+}
+
+.design-actions button {
+    border-radius: 50px;
+    padding: 1rem 2rem;
+}
