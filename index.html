@@ -284,6 +284,76 @@
             background: rgba(255,0,0,0.1);
         }
         
+        #designResult {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #1a1a1a;
+            border: 2px solid #00ffff;
+            display: none;
+            border-radius: 8px;
+        }
+        
+        #designResult img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .mockup-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .mockup-container canvas {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .loading-spinner {
+            text-align: center;
+            padding: 3rem;
+            color: #00ffff;
+        }
+        
+        .loading-spinner::after {
+            content: '⚡';
+            font-size: 3rem;
+            animation: spin 1s linear infinite;
+            display: block;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .design-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .design-actions button {
+            padding: 0.8rem 2rem;
+            background: #00ffff;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px #00ffff;
+        }
+        
+        .design-actions button:hover {
+            background: #ff00ff;
+            box-shadow: 0 0 25px #ff00ff;
+            transform: scale(1.05);
+        }
+        
         /* FOOTER */
         footer {
             background: #111;
