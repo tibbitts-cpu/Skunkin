@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - SKUNKIN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <div class="checkout-page">
+        <div class="checkout-layout">
+            <div class="checkout-form">
+                <h1>Checkout</h1>
+                
+                <!-- Progress Steps -->
+                <div class="progress-steps">
+                    <div class="step active">1. Shipping</div>
+                    <div class="step">2. Payment</div>
+                    <div class="step">3. Review</div>
+                </div>
+                
+                <!-- Shipping Information -->
+                <div class="form-section">
+                    <h2>Shipping Information</h2>
+                    <div class="form-grid">
+                        <input type="email" placeholder="Email *" required>
+                        <input type="text" placeholder="First Name *" required>
+                        <input type="text" placeholder="Last Name *" required>
+                        <input type="text" placeholder="Address *" required class="full-width">
+                        <input type="text" placeholder="Apt, Suite (optional)" class="full-width">
+                        <input type="text" placeholder="City *" required>
+                        <input type="text" placeholder="State *" required>
+                        <input type="text" placeholder="ZIP Code *" required>
+                        <input type="tel" placeholder="Phone *" required class="full-width">
+                    </div>
+                </div>
+                
+                <!-- Shipping Method -->
+                <div class="form-section">
+                    <h2>Shipping Method</h2>
+                    <div class="shipping-options">
+                        <label class="radio-option">
+                            <input type="radio" name="shipping" checked>
+                            <div>
+                                <strong>Standard Shipping</strong>
+                                <span>5-7 business days</span>
+                            </div>
+                            <span>FREE</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="shipping">
+                            <div>
+                                <strong>Express Shipping</strong>
+                                <span>2-3 business days</span>
+                            </div>
+                            <span>$9.99</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="shipping">
+                            <div>
+                                <strong>Overnight</strong>
+                                <span>1 business day</span>
+                            </div>
+                            <span>$24.99</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Payment Information -->
+                <div class="form-section">
+                    <h2>Payment Information</h2>
+                    <p class="secure-notice">🔒 Secure payment powered by Stripe</p>
+                    <div class="form-grid">
+                        <input type="text" placeholder="Card Number *" required class="full-width">
+                        <input type="text" placeholder="MM / YY *" required>
+                        <input type="text" placeholder="CVC *" required>
+                        <input type="text" placeholder="Name on Card *" required class="full-width">
+                    </div>
+                </div>
+                
+                <button class="btn-primary place-order-btn" onclick="placeOrder()">
+                    Place Order - $32.39
+                </button>
+            </div>
+            
+            <div class="order-summary-sidebar">
+                <h2>Order Summary</h2>
+                <div class="cart-item-mini">
+                    <img src="hero-image-2.jpg" alt="Product">
+                    <div>
+                        <p><strong>Cyber Reaper</strong></p>
+                        <p>M | Black | x1</p>
+                    </div>
+                    <span>$29.99</span>
+                </div>
+                
+                <div class="summary-totals">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>$29.99</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span>FREE</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax</span>
+                        <span>$2.40</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span>$32.39</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - SKUNKIN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <div class="products-page">
+        <h1>Shop All Designs</h1>
+        
+        <div class="filters">
+            <select id="sortBy">
+                <option>Sort by: Featured</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+                <option>Newest</option>
+            </select>
+            
+            <div class="filter-tags">
+                <button class="active">All</button>
+                <button>Men's</button>
+                <button>Women's</button>
+                <button>Unisex</button>
+            </div>
+        </div>
+        
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card" onclick="window.location.href='product-detail.html?id=1'">
+                <div class="product-image">
+                    <img src="hero-image-2.jpg" alt="Grim Reaper Design">
+                    <span class="badge">NEW</span>
+                </div>
+                <h3>Cyber Reaper</h3>
+                <p class="price">$29.99</p>
+                <div class="colors">
+                    <span class="color-dot" style="background: #000"></span>
+                    <span class="color-dot" style="background: #fff; border: 1px solid #333"></span>
+                    <span class="color-dot" style="background: #666"></span>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card" onclick="window.location.href='product-detail.html?id=2'">
+                <div class="product-image">
+                    <img src="hero-image.jpg" alt="BLESSED Design">
+                    <span class="badge hot">HOT</span>
+                </div>
+                <h3>Blessed Engineering</h3>
+                <p class="price">$29.99</p>
+                <div class="colors">
+                    <span class="color-dot" style="background: #000"></span>
+                    <span class="color-dot" style="background: #8B0000"></span>
+                </div>
+            </div>
+            
+            <!-- Placeholder products -->
+            <div class="product-card">
+                <div class="product-image placeholder">
+                    <span>COMING SOON</span>
+                </div>
+                <h3>Aerospace Heretics</h3>
+                <p class="price">$29.99</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image placeholder">
+                    <span>COMING SOON</span>
+                </div>
+                <h3>Muscle Performance</h3>
+                <p class="price">$29.99</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image placeholder">
+                    <span>COMING SOON</span>
+                </div>
+                <h3>Black Ops Skunk</h3>
+                <p class="price">$29.99</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image placeholder">
+                    <span>COMING SOON</span>
+                </div>
+                <h3>Nuclear Research</h3>
+                <p class="price">$29.99</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - SKUNKIN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    <div class="product-detail-page">
+        <div class="product-layout">
+            <div class="product-images">
+                <div class="main-image">
+                    <img id="mainImg" src="hero-image-2.jpg" alt="Product">
+                </div>
+                <div class="thumbnail-gallery">
+                    <img src="hero-image-2.jpg" onclick="changeImage(this.src)">
+                    <img src="hero-image.jpg" onclick="changeImage(this.src)">
+                </div>
+            </div>
+            
+            <div class="product-info">
+                <h1>Cyber Reaper Design</h1>
+                <p class="price-large">$29.99</p>
+                <div class="rating">
+                    ⭐⭐⭐⭐⭐ <span>(47 reviews)</span>
+                </div>
+                
+                <p class="description">Premium quality t-shirt featuring exclusive SKUNKIN design. Perfect for engineers, builders, and anyone who tests limits.</p>
+                
+                <!-- Size Selection -->
+                <div class="option-group">
+                    <label>Size</label>
+                    <div class="size-options">
+                        <button class="size-btn">XS</button>
+                        <button class="size-btn active">S</button>
+                        <button class="size-btn">M</button>
+                        <button class="size-btn">L</button>
+                        <button class="size-btn">XL</button>
+                        <button class="size-btn">2XL</button>
+                        <button class="size-btn">3XL</button>
+                    </div>
+                    <a href="#" class="size-guide">📏 Size Guide</a>
+                </div>
+                
+                <!-- Color Selection -->
+                <div class="option-group">
+                    <label>Color</label>
+                    <div class="color-options">
+                        <button class="color-option active" style="background: #000" title="Black"></button>
+                        <button class="color-option" style="background: #fff; border: 2px solid #333" title="White"></button>
+                        <button class="color-option" style="background: #666" title="Gray"></button>
+                        <button class="color-option" style="background: #000080" title="Navy"></button>
+                        <button class="color-option" style="background: #8B0000" title="Maroon"></button>
+                    </div>
+                </div>
+                
+                <!-- Material Selection -->
+                <div class="option-group">
+                    <label>Material</label>
+                    <select class="material-select">
+                        <option>100% Cotton - $29.99</option>
+                        <option>Tri-Blend (50/25/25) - $34.99</option>
+                        <option>Performance Poly - $39.99</option>
+                        <option>Heavyweight Cotton - $34.99</option>
+                    </select>
+                </div>
+                
+                <!-- Fit Selection -->
+                <div class="option-group">
+                    <label>Fit</label>
+                    <div class="fit-options">
+                        <button class="fit-btn active">Regular</button>
+                        <button class="fit-btn">Slim</button>
+                        <button class="fit-btn">Relaxed</button>
+                    </div>
+                </div>
+                
+                <!-- Quantity -->
+                <div class="option-group">
+                    <label>Quantity</label>
+                    <div class="quantity-selector">
+                        <button onclick="changeQty(-1)">-</button>
+                        <input type="number" id="qty" value="1" min="1">
+                        <button onclick="changeQty(1)">+</button>
+                    </div>
+                </div>
+                
+                <!-- Actions -->
+                <div class="product-actions">
+                    <button class="btn-primary" onclick="addToCartDetailed()">🛒 Add to Cart</button>
+                    <button class="btn-secondary" onclick="buyNow()">⚡ Buy Now</button>
+                </div>
+                
+                <div class="product-features">
+                    <p>✓ Free shipping on orders $50+</p>
+                    <p>✓ 30-day money-back guarantee</p>
+                    <p>✓ Premium screen printing</p>
+                    <p>✓ Machine washable</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reviews Section -->
+        <div class="reviews-section">
+            <h2>Customer Reviews</h2>
+            <div class="review">
+                <div class="review-header">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <span class="reviewer">Mike T.</span>
+                </div>
+                <p>"Best quality shirt I've bought. Design is sick and the material is top notch!"</p>
+            </div>
+            <div class="review">
+                <div class="review-header">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <span class="reviewer">Sarah K.</span>
+                </div>
+                <p>"Love the SKUNKIN vibe. Fits perfect and looks amazing."</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
